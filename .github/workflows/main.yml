@@ -1,0 +1,34 @@
+name: Run Newman with HTML Report
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Install Newman
+      run: npm install -g newman
+
+    - name: Run Newman and Generate HTML Report
+      run: |
+        newman run path/to/your/collection.json \
+          --reporters html \
+          --reporter-html-export newman-report.html
+
+    - name: Archive HTML Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: newman-html-report
+        path: newman-report.html
