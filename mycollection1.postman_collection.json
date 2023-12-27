@@ -19,7 +19,8 @@
 					],
 					"path": [
 						"api",
-						"users"
+						"users",
+						"name"
 					],
 					"query": [
 						{
