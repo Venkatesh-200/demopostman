@@ -13,17 +13,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
-      - name: Run tests and generate HTML report
-        run: |
-          # Add your test commands here
-          # For example, if you're using a specific testing framework:
-          # npm install
-          # npm test
-
-          # Generate HTML report (replace with your actual command)
-          echo '<html><body><h1>Test Report</h1><p>Test results go here.</p></body></html>' > test-report.html
-
       - name: Upload HTML report
         uses: actions/upload-artifact@v2
         with:
