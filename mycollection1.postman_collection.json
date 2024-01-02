@@ -28,7 +28,8 @@
 					"query": [
 						{
 							"key": "page",
-							"value": "2"
+							"value": "2",
+							"pair":"3"
 						}
 					]
 				}
