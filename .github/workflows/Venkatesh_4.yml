@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        run: |
+             mkdir sampleArtifact
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -28,4 +30,5 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         with:
           name: postman-html-report
-          path: newman/*.html
+          path: sampleArtifact
+
