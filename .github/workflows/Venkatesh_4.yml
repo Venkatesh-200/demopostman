@@ -8,11 +8,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
- 
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Upload Newman Report
-        uses: actions/upload-artifact@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -24,9 +23,10 @@ jobs:
 
       - name: Run Postman Collection
         run: newman run PostManCollection/mycollection1.postman_collection.json
-    
 
-     
-
-     
-     
+      - name: Upload Newman Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: newman-report
+          path: newman/*.html
+          if-no-files-found: warn
