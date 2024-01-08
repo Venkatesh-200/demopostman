@@ -21,8 +21,9 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
 
-      - name: Run Postman Collection
-        run: newman run PostManCollection/mycollection1.postman_collection.json -r html
+    
+      - name: Run Postman Collection and Generate HTML Report
+        run: newman run PostManCollection/mycollection1.postman_collection.json -r html --reporter-html-template .github/workflows/Venkatesh_4.yml
 
       - name: Upload Newman Report
         uses: actions/upload-artifact@v2
