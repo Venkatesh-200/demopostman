@@ -10,10 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
       - name: Checkout Repository
-        run: |
-             mkdir sampleArtifact
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -24,11 +22,11 @@ jobs:
         run: npm install -g newman
 
       - name: Run Postman Collection
-        run: newman run PostManCollection/mycollection1.postman_collection.json --reporters cli,html
+        run: newman run PostManCollection/mycollection1.postman_collection.json
 
-      - name: Upload HTML Report
-        uses: actions/upload-artifact@v2.2.4
+      - name: Upload Newman Report
+        uses: actions/upload-artifact@v2
         with:
-          name: postman-html-report
-          path: sampleArtifact
-
+          name: newman-report
+          path: newman/*.html
+          if-no-files-found: warn
