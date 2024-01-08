@@ -37,9 +37,9 @@ jobs:
       - name: Run Postman Collection
         run: newman run PostManCollection/mycollection1.postman_collection.json
 
-      # # To generate and upload HTML report
-      # - name: Generate and Upload HTML Report
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: HomeHealth-reports
-      #     path: path/to/your/html/reports
+      # To generate and upload HTML report
+      - name: Generate and Upload HTML Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: HomeHealth-reports
+          path: path/to/your/html/reports
