@@ -10,7 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Dependencies
+        run: npm install
 
       - name: Install Newman
         run: npm install -g newman
@@ -21,6 +30,5 @@ jobs:
       - name: Upload HTML Report
         uses: actions/upload-artifact@v2.2.4
         with:
-             name: postman-html-report
-             path: newman
-
+          name: postman-html-report
+          path: newman/*.html
