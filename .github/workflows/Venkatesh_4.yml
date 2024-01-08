@@ -24,15 +24,8 @@ jobs:
       - name: Run Postman Collection
         run: newman run PostManCollection/mycollection1.postman_collection.json
 
-      - name: Create Newman Reports Folder
-        run: mkdir newman-reports
-
-      - name: Move HTML Reports to Folder
-        run: mv *.html newman-reports/
-
       - name: Upload Newman Report
         uses: actions/upload-artifact@v2
         with:
           name: newman-report
-          path: newman-reports/
-          
+          path: .github/workflows/Venkatesh_4.yml
