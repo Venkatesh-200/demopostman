@@ -19,7 +19,8 @@ jobs:
         run: newman run PostManCollection/mycollection1.postman_collection.json --reporters cli,html
 
       - name: Upload HTML Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.2.4
         with:
-          name: postman-html-report
-          path: newman/*.html
+             name: postman-html-report
+             path: newman
+
