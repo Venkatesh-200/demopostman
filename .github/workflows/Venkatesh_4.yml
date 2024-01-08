@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: newman-report
-          path: C:\Users\91960\Downloads\newman-report.html.txt
+          path: .github/workflows/Venkatesh_4.yml/newman-report.yml
