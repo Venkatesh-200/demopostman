@@ -36,6 +36,11 @@ jobs:
       # Run specific actions for the Postman_Collection folder
       - name: Run Postman Collection
         run: newman run PostManCollection/mycollection1.postman_collection.json
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+            node-version: 16
+
 
       # To generate and upload HTML report
       - name: Generate and Upload HTML Report
